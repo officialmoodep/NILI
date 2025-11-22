@@ -1,289 +1,223 @@
-/* فونت دلخواه (اختیاری: برای فارسی بهتر) */
+/* فونت دلخواه */
 @font-face {
     font-family: 'Sahel';
-    src: url('fonts/Sahel.ttf') format('truetype'); /* مسیر به فایل فونت شما. اگر ندارید، این خط را حذف کنید */
+    src: url('fonts/Sahel.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
-body {
-    font-family: 'Sahel', Tahoma, sans-serif; /* در صورت عدم وجود فونت، از Tahoma استفاده می‌شود */
-    background-color: #fce4ec; /* صورتی پاستلی ملایم */
-    direction: rtl; /* برای پشتیبانی بهتر از زبان فارسی */
+body, html {
+    font-family: 'Sahel', Tahoma, sans-serif;
+    background-color: #fce4ec;
+    direction: rtl;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
-    overflow-x: hidden; 
-    color: #333333; /* رنگ متن اصلی */
+    box-sizing: border-box;
+    color: #333;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-/* پس‌زمینه هیرو سکشن (تصویر انتخابی) */
+/* هیرو سکشن */
 .hero-section {
     background-image: url('https://images.unsplash.com/photo-1517743093202-b251b6819447?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHw1fHxyb21hbnRpYyUyMGdhbGF4eXxlbnwwfHx8fDE3MDA3NDY1MDN8MA&ixlib=rb-4.0.3&q=80&w=1080'); 
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed; /* افکت پارالاکس ملایم */
-    min-height: 70vh; 
+    background-attachment: scroll; /* fixed در موبایل مشکل دارد */
+    min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    overflow: hidden; 
 }
 
-/* سایه برای خوانایی متن روی تصویر پس‌زمینه */
 .hero-section::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* تیره کردن پس زمینه */
-    z-index: 1;
+    top:0; left:0; right:0; bottom:0;
+    background-color: rgba(0,0,0,0.5);
+    z-index:1;
 }
 
 .hero-section > div {
-    z-index: 2; 
+    z-index:2;
 }
 
-/* استایل شمارشگر */
+/* شمارشگر */
 #counter {
     margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .counter-box {
-    background-color: rgba(255, 255, 255, 0.25); 
-    backdrop-filter: blur(8px); 
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 12px;
-    padding: 15px 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 5px; 
-    text-align: center; 
+    background-color: rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+    border:1px solid rgba(255,255,255,0.6);
+    border-radius:12px;
+    padding:15px 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align:center;
+    flex: 1 1 100px;
+    max-width: 150px;
 }
 
 .counter-box:hover {
-    transform: translateY(-5px) scale(1.02); 
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(255,105,180,0.4);
 }
 
 .counter-box span {
-    font-weight: bold;
-    color: #ff69b4; /* رنگ صورتی داغ برای اعداد */
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 10px rgba(0, 0, 0, 0.5); 
-    font-size: 2.8rem; 
+    font-weight:bold;
+    color:#ff69b4;
+    text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 10px rgba(0,0,0,0.5);
+    font-size:2.2rem;
 }
 
 small {
-    font-size: 0.9em;
-    color: rgba(255, 255, 255, 0.8);
-    display: block; 
-    margin-top: 5px;
+    font-size:0.9em;
+    color: rgba(255,255,255,0.8);
+    display:block;
+    margin-top:5px;
 }
 
-
-/* استایل کارت‌های محتوا */
+/* کارت‌ها */
 .romantic-card {
-    background-color: #ffffff;
+    background-color: #fff;
     border: none;
-    border-radius: 20px; 
-    box-shadow: 0 5px 25px rgba(255, 105, 180, 0.15); 
-    padding: 30px;
-    margin-bottom: 30px; 
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(255,105,180,0.15);
+    padding:25px;
+    margin:15px;
 }
 
 .card-title {
-    color: #880e4f; /* رنگ زرشکی تیره */
-    font-weight: bold;
-    border-bottom: 3px solid #ff69b4; 
-    padding-bottom: 12px;
-    margin-bottom: 25px;
-    font-size: 2rem;
+    color:#880e4f;
+    font-weight:bold;
+    border-bottom:3px solid #ff69b4;
+    padding-bottom:12px;
+    margin-bottom:20px;
+    font-size:1.8rem;
 }
 
-/* استایل بلاک‌کووت (اشعار) - اصلاح شده برای خوانایی بیشتر */
+/* بلاک‌کووت */
 blockquote {
-    border-right: 4px solid #ffc0cb; 
+    border-right: 4px solid #ffc0cb;
     padding-right: 15px;
-    margin-bottom: 30px;
+    margin-bottom:20px;
     font-style: italic;
-    color: #333; /* تضمین رنگ تیره برای متن شعر */
+    color: #333;
     background-color: transparent;
 }
 
 blockquote p {
-    font-size: 1.15rem;
-    line-height: 2.0; /* *اصلاح کلیدی:* افزایش ارتفاع خط برای رفع مشکل روی هم افتادن */
-    margin: 0; 
-    padding: 0;
+    font-size:1.1rem;
+    line-height:1.8;
+    margin:0;
 }
 
-/* استایل نام شاعر */
 .blockquote-footer {
-    font-size: 0.9em;
-    color: #777 !important; 
-    text-align: left; 
-    display: block;
-    margin-top: 15px; 
-    font-style: normal;
+    font-size:0.9em;
+    color:#777 !important;
+    text-align:left;
+    display:block;
+    margin-top:10px;
+    font-style:normal;
 }
 
-/* استایل برای خطوط جداکننده */
 hr {
-    border-top: 1px solid #ffc0cb; 
-    opacity: 0.8;
-    margin: 30px 0; 
+    border-top:1px solid #ffc0cb;
+    opacity:0.8;
+    margin:20px 0;
 }
 
-/* استایل دلنوشته */
+/* دلنوشته */
 #notes p {
-    font-size: 1.1em;
-    line-height: 1.9;
-    color: #333;
+    font-size:1.05em;
+    line-height:1.8;
+    color:#333;
 }
 
-/* استایل لیست آهنگ‌ها (پلیرهای HTML5) */
+/* موسیقی */
 .music-item-player { 
-    background-color: #fff0f5; 
-    border-color: #ffc0cb;
+    background-color: #fff0f5;
     border-radius: 10px;
-    margin-bottom: 12px;
-    padding: 15px 20px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    display: flex; 
-    flex-direction: column; 
-    align-items: flex-start; 
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.music-item-player:hover {
-    background-color: #ffc0cb; 
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.2);
-}
-
-.music-item-player p {
-    font-size: 1.1em;
-    font-weight: 500;
-    margin-bottom: 10px; 
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.music-item-player .badge {
-    background-color: #880e4f !important; 
-    color: white;
-    margin-right: 10px; 
-}
-
-
-/* تنظیم عرض پلیر صوتی برای ریسپانسیو بودن */
 .music-item-player audio {
-    width: 100%; 
-    margin-top: 5px; 
-    border-radius: 5px;
-    outline: none; 
+    width:100%;
+    margin-top:5px;
+    border-radius:5px;
 }
 
-/* استایل فوتر */
+/* فوتر */
 footer {
-    background-color: #ffa2ebf6 !important; 
-    color: #ffffff;
-    padding: 20px 0;
-    margin-top: 50px;
+    background-color: #ffa2ebf6 !important;
+    color:#fff;
+    padding:20px 0;
+    margin-top:50px;
+    text-align:center;
 }
+
 footer p {
-    margin: 0;
-    font-size: 0.9em;
+    margin:0;
+    font-size:0.9em;
 }
 
-
-/* === تنظیمات ریسپانسیو برای موبایل === */
-@media (max-width: 768px) { 
-    .hero-section {
-        min-height: 55vh; 
-    }
-    .display-4 {
-        font-size: 1.8rem;
-    }
-    .lead {
-        font-size: 1rem;
-    }
-
-    /* تنظیم عرض برای 6 بخش شمارشگر در موبایل */
-    #counter .col-4, #counter .col-6, #counter .col-12 {
-        flex: 0 0 auto; 
-        width: 30%; 
-    }
-    #counter .col-12 { 
-        width: 90%; 
-    }
-    .counter-box {
-        padding: 10px 5px;
-        margin: 4px auto; 
-        max-width: 120px; 
-    }
-    .counter-box span {
-        font-size: 1.8rem !important; 
-    }
-    small {
-        font-size: 0.8em;
-    }
-
-    .romantic-card {
-        padding: 20px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-    .card-title {
-        font-size: 1.5rem;
-    }
-    
-    blockquote p {
-        font-size: 1rem;
-        line-height: 1.8; /* ارتفاع خط مناسب برای موبایل */
-    }
-    
-    .blockquote-footer {
-        font-size: 0.85em;
-        margin-top: 10px;
-    }
-
-    #notes p {
-        font-size: 1rem;
-    }
-
-    .music-item-player p {
-        font-size: 1em;
-    }
+/* ویدئوها */
+.video-frame {
+    background-color:#fff;
+    border:3px solid #ff69b4;
+    border-radius:15px;
+    padding:15px;
+    box-shadow:0 4px 15px rgba(255,105,180,0.4);
+    margin:0 auto 20px;
+    max-width:600px;
 }
 
-@media (max-width: 576px) { 
-    .hero-section {
-        min-height: 50vh;
-    }
-    .display-4 {
-        font-size: 1.5rem;
-    }
-    .counter-box span {
-        font-size: 1.4rem !important; 
-    }
-    #counter .col-4, #counter .col-6 {
-        width: 45%; 
-    }
-    #counter .col-12 {
-        width: 90%;
-    }
-    small {
-        font-size: 0.7em;
-    }
-    .romantic-card {
-        padding: 15px;
-    }
-    .card-title {
-        font-size: 1.3rem;
-    }
+#videos .col-12 {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    .hero-section { min-height:55vh; }
+    .display-4 { font-size:1.8rem; }
+    .lead { font-size:1rem; }
+
+    .counter-box { padding:10px 5px; max-width:120px; }
+    .counter-box span { font-size:1.8rem !important; }
+
+    .romantic-card { padding:20px; margin:10px; }
+    .card-title { font-size:1.5rem; }
+
+    blockquote p { font-size:1rem; line-height:1.6; }
+    .blockquote-footer { font-size:0.85em; margin-top:8px; }
+    #notes p { font-size:1rem; }
+
+    .music-item-player p { font-size:0.95em; }
+    .video-frame { max-width:95%; padding:10px; }
+}
+
+@media (max-width: 576px) {
+    .hero-section { min-height:50vh; }
+    .display-4 { font-size:1.5rem; }
+    .counter-box { max-width:100px; padding:8px 5px; }
+    .counter-box span { font-size:1.4rem !important; }
+
+    .romantic-card { padding:15px; margin:8px; }
+    .card-title { font-size:1.3rem; }
+
+    blockquote p { font-size:0.95rem; line-height:1.4; }
+    .blockquote-footer { font-size:0.8em; margin-top:6px; }
+    #notes p { font-size:0.95rem; }
 }
